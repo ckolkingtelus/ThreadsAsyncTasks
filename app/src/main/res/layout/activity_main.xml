@@ -21,7 +21,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="8dp"
-        android:text="Press GO to start."
+        android:text="@string/msgPressStart"
         android:textAlignment="center"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/button"
@@ -30,7 +30,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="GO"
+        android:text="@string/btReadyText"
         android:id="@+id/button"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
