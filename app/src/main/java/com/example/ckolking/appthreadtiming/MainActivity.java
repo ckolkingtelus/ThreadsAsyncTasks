@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("CEK-doButtonClick", "UI message finished");
             // 'finished' only made sense before the Async task stuff
             // tv.setText("Finished.");
-            // instead with the Async 'executed' in the background, then we can say that we have started: 
+            // instead with the Async 'executed' in the background, then we can say that we have started:
             tv.setText("We have begun...");
         }
     }
