@@ -18,20 +18,29 @@ public class MainActivity extends AppCompatActivity {
     Integer nBtClicks; // for class wide reference to update number of button clicks
     Boolean btBusy; // for class wide reference to update blocking state of button
     Integer btJustify;
-    //TODO: cannot make the "integer" resource work neither here in declaration nor in constructor. 
+    //TODO: cannot make the "integer" resource work neither here in declaration nor in constructor.
     // int countMax = getResources().getInteger(R.integer.maxNumberToProcess);
     // instead hard-code:
-    Integer countMax = 10;
+    // Integer countMax = 10;
+    Integer countMax;
 
     public MainActivity() {
         nBtClicks = 0;
         btBusy = FALSE;
-        // Log.d("CEK-MainActivity constructor", "countMax is " + countMax);
+        //Log.d("CEK-MainActivity constructor", "countMax is " + countMax);
         Log.d("CEK-MainActivity constructor", "Rid countMax is " + R.integer.maxNumberToProcess);
+//        String testString = getString(R.integer.maxNumberToProcess);
+//        Log.d("CEK-MainActivity constructor", "did I get this far 1");
+//        Log.d("CEK-MainActivity constructor", "String countMax is " + testString + ".");
+//        try {
+//            countMax = Integer.parseInt(getString(R.integer.maxNumberToProcess));
+//        } catch (NumberFormatException e) {
+//            e.printStackTrace();
+//        }
         //Log.d("CEK-MainActivity constructor", "integer countMax is " + String.valueOf(countMax));
         //Log.d("CEK-MainActivity constructor", "log stuff");
         // countMax = Integer.valueOf(getString(R.integer.maxNumberToProcess));
-        //countMax = 10;
+//        countMax = 10;
     }
 
     @Override
@@ -44,6 +53,14 @@ public class MainActivity extends AppCompatActivity {
         //handle button presses
         Log.d("CEK-onCreate", "setOnClickListener");
         findViewById(R.id.button).setOnClickListener(new doButtonClick());
+        String testString = getString(R.integer.maxNumberToProcess);
+        Log.d("CEK-MainActivity constructor", "did I get this far 1");
+        Log.d("CEK-MainActivity constructor", "String countMax is " + testString + ".");
+        try {
+            countMax = Integer.parseInt(getString(R.integer.maxNumberToProcess));
+        } catch (NumberFormatException e) {
+            e.printStackTrace();
+        }
     }
 
     class doButtonClick implements View.OnClickListener {
@@ -78,6 +95,7 @@ public class MainActivity extends AppCompatActivity {
             count++;
             Log.d("CEK-ThisTakesAWhile", "UI message processed count " + count);
             tv.setText("Processed " + count + " of " + getString(R.integer.maxNumberToProcess) + ".");
+            //tv.setText("Processed " + count + " of " + countMax + ".");
             Log.d("CEK-ThisTakesAWhile", "crash before here?");
         } while (count < 10);
     }
